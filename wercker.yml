@@ -43,3 +43,13 @@ deploy:
        tag: latest
        repository: gnensis/golangtest
        registry: https://registry.hub.docker.com
+
+
+   - cng/cf-deploy:
+        api: $API
+        user: $USER
+        password: $PASSWORD
+        org: $ORG
+        space: $SPACE
+        appname: golangtest
+        docker_image: gnensis/golangtest    
