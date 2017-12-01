@@ -11,7 +11,7 @@ build:
     - script:
         name: go get
         code: |
-          cd $WERCKER_SOURCE_DIR
+          go get github/gnensis/golangtest
           go version
 
     # Build the project
@@ -28,7 +28,7 @@ build:
     - script:
         name: go test
         code: |
-          go test -v ./service
+          go test ./... 
 
     - script:
         name: copy files to wercker output
