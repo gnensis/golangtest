@@ -12,12 +12,18 @@ build:
         name: go get
         code: |
           go version
+          go get github.com/gnensis/golangtest
+          export PATH=$WERCKER_OUTPUT_DIR/bin:$PATH
+          export GOPATH=$WERCKER_OUTPUT_DIR
+
+          
 
     # Build the project
     - script:
         name: go build
         code: |
           go build
+          go install
 
     - script:
         name: env
@@ -39,7 +45,7 @@ deploy:
    - internal/docker-push:
        username: $USERNAME
        password: $PASSWORD
-       cmd: go run /pipeline/source/hello-cloud.go 
+       cmd: /go/bin/golangtest 
        tag: latest
        repository: gnensis/golangtest
        registry: https://registry.hub.docker.com/v2
