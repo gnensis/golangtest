@@ -11,7 +11,7 @@ build:
     - script:
         name: go get
         code: |
-          go get github/gnensis/golangtest
+                # go get github/gnensis/golangtest
           go version
 
     # Build the project
