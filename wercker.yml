@@ -42,6 +42,6 @@ deploy:
        cmd: /pipeline/source/golangtest
        tag: latest
        repository: gnensis/golangtest
-       registry: https://registry.hub.docker.com
+       registry: https://registry.hub.docker.com/v2
 
 
