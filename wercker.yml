@@ -39,7 +39,7 @@ deploy:
    - internal/docker-push:
        username: $USERNAME
        password: $PASSWORD
-       cmd: /pipeline/source/golangtest
+       cmd: go run /pipeline/source/hello-cloud.go 
        tag: latest
        repository: gnensis/golangtest
        registry: https://registry.hub.docker.com/v2
