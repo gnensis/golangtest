@@ -35,6 +35,10 @@ build:
     - script:
         name: copy files to wercker output
         code: |
+          echo "before copy"
+          pwd
+          echo "WERCKER_OUTPUT_DIR:"
+          echo $WERCKER_OUTPUT_DIR 
           cp golangtest ${WERCKER_OUTPUT_DIR}
 
 deploy:
@@ -42,7 +46,7 @@ deploy:
    - internal/docker-push:
        username: $USERNAME
        password: $PASSWORD
-       cmd: /pipeline/output/golangtest 
+       cmd: /pipeline/source/golangtest 
        tag: latest
        repository: gnensis/golangtest
        registry: https://registry.hub.docker.com/v2
