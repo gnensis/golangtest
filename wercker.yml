@@ -12,9 +12,8 @@ build:
         name: go get
         code: |
           go version
-          go get github.com/gnensis/golangtest
-          export PATH=$WERCKER_OUTPUT_DIR/bin:$PATH
-          export GOPATH=$WERCKER_OUTPUT_DIR
+          go get -u github.com/gnensis/golangtest
+          export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
 
           
 
@@ -23,10 +22,9 @@ build:
         name: go build
         code: |
           go build
-          go install
 
     - script:
-        name: env
+        name: print env
         code: env
 
     # Test the project
@@ -38,14 +36,14 @@ build:
     - script:
         name: copy files to wercker output
         code: |
-          cp -R ./ ${WERCKER_OUTPUT_DIR}
+          cp golangtest ./ ${WERCKER_OUTPUT_DIR}
 
 deploy:
  steps:
    - internal/docker-push:
        username: $USERNAME
        password: $PASSWORD
-       cmd: /go/bin/golangtest 
+       cmd: /pipeline/output/golangtest 
        tag: latest
        repository: gnensis/golangtest
        registry: https://registry.hub.docker.com/v2
