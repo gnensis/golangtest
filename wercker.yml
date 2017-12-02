@@ -12,7 +12,6 @@ build:
         name: go get
         code: |
           go version
-          go get -u github.com/gnensis/golangtest
           export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
 
           
