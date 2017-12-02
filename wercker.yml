@@ -35,7 +35,7 @@ build:
     - script:
         name: copy files to wercker output
         code: |
-          cp golangtest ./ ${WERCKER_OUTPUT_DIR}
+          cp golangtest ${WERCKER_OUTPUT_DIR}
 
 deploy:
  steps:
