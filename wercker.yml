@@ -38,8 +38,10 @@ build:
           echo "before copy"
           pwd
           echo "WERCKER_OUTPUT_DIR:"
-          echo $WERCKER_OUTPUT_DIR 
+          echo $WERCKER_OUTPUT_DIR
+          ls -l
           cp golangtest ${WERCKER_OUTPUT_DIR}
+          ls -l
 
 deploy:
  steps:
